@@ -11,8 +11,8 @@ const Register = () => {
   const [PWLength, setPWLength] = useState(false);
   const allUsers = JSON.parse(localStorage.getItem("allUsers"));
   const storeData = () => {
+    const regUsername = /^[a-z0-9_]+$/;
     if (!(user.username === "" && user.password === "")) {
-      const regUsername = /^[a-z0-9_]+$/;
       if (
         //first check for user already exist or not
         //second check for alphanumeric name or not
@@ -102,7 +102,7 @@ const Register = () => {
           />
           {PWLength ? (
             <span className="text-red-400 text-lg">
-              * Password length must be >=8
+              * Password length must be {">"}= 8
             </span>
           ) : null}
         </div>

@@ -8,10 +8,10 @@ const Login = () => {
   const allUsers = JSON.parse(localStorage.getItem("allUsers"));
   const [UserNotFound, setUserNotFound] = useState(false);
   const [UserPwWrong, setUserPwWrong] = useState(false);
-  const usernameCheck = allUsers.find(
+  const usernameCheck = allUsers?.find(
     (storedUser) => storedUser.username === user.username
   );
-  const passwordCheck = allUsers.find(
+  const passwordCheck = allUsers?.find(
     (storedUser) => storedUser.password === user.password
   );
   function checkLogin() {
