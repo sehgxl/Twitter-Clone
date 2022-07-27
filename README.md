@@ -1,70 +1,58 @@
-# Getting Started with Create React App
+## Introduction
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is about building a small but functional social media app like twitter. You should have the following features:
 
-## Available Scripts
+- User authentication via localStorage
+- Feed logic
+- CRUD on posts
 
-In the project directory, you can run:
+Extra things to do:
 
-### `npm start`
+- Add like/comment for every post
+- Add ability to follow users
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Project checklist
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+In this project, you're supposed to work on a basic React app with all the functionalities listed below.
 
-### `npm test`
+=>without css
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- [done ] Build a landing page for the social media
+- [ done ] Build a login page at `/login`
+- [ done ] Build a registration page at `/register`
+- [ done ] When the user registers a new account, the details of user is stored in `localStorage`. `localStorage` should have a key called "allUsers" and value as a JSON stringified array of `username` and `password` of all users.
 
-### `npm run build`
+Example of what object should be stored in `localStorage`:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+[{
+    username: 'admin',
+    password: '123'
+}, {
+    username: 'john',
+    password: '456'
+}]
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- [ done ] Add basic validation to the registration: Usernames should be unique, alphanumeric only. Passwords should be strong.
+- [ done ] When a user logs in, you should iterate on this key and figure out if `allUsers` contains the user. If yes, check if username and password matches. If they match, redirect the user to `/dashboard` screen.
+- [ done ] Store logged in user's username inside localStorage too. You may use `loggedIn` as the key and the username of the user logged in as the value.
+- [ ] The dashboard should load feed from all the users. This feed should be also stored in `localStorage` as `feed` as the localStorage key, and the following structure as the value (feel free to change it to add more features):
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+[{
+    postID: '', // a unique post ID
+    contents: '', // contents of the post
+    postAuthor: '', // username of the author of the post
+    createdOn: 0, // a unix timestamp (stored in seconds) of the time it was created
+    updatedOn: 0, // a unix timestamp (stored in seconds) of time it was updated
+}]
+```
 
-### `npm run eject`
+- [ done ] Whenever a user creates a new post, it is added into the localStorage key `feed` as an individual post.
+- [ done ] All posts inside `feed` localStorage should be visible to everyone in random order who create an account and visits `/dashboard`
+- [ ] Only the post author should see the option to edit or delete the post.
+- [ ] Only the post author can edit and delete the post. Put proper checks in place.
+- [ ] Take design inspiration from `assets` folder, but you have to build the design + logic on your own.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+All the best!
