@@ -60,8 +60,8 @@ const MainSection = ({ username }) => {
 
       <section className="py-6 border-t w-full px-4 ">
         <ul>
-          {JSON?.parse(localStorage.getItem("Feed"))
-            .reverse()
+          {JSON.parse(localStorage.getItem("Feed"))
+            ?.reverse()
             .map((tweet) => {
               return (
                 <li className="flex gap-4 mb-5  ">
