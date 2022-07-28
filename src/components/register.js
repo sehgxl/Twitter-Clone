@@ -17,7 +17,7 @@ const Register = () => {
         //first check for user already exist or not
         //second check for alphanumeric name or not
         //third check for pw lenght >=8 or not
-        !allUsers.find((storedUser) => storedUser.username === user.username) &&
+        !allUsers?.find((storedUser) => storedUser.username === user.username) &&
         regUsername.test(user.username) &&
         user.password.length >= 8
       ) {
