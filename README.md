@@ -1,5 +1,7 @@
-# Minimal-Calculator-App
-Fully Functional and Minimal Design Calculator
+# Twitter Clone App
+- Maintains User Data on local storage 
+- User has the ability to tweet
+- Deployed on Vercel
 
 ## [Play](https://twitter-clone-sehgxl.vercel.app/)
 
