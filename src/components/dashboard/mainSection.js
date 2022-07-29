@@ -63,7 +63,7 @@ const MainSection = ({ username }) => {
       <section className=" border-t w-full ">
         <ul>
           {JSON.parse(localStorage.getItem("Feed"))
-            .reverse()
+            ?.reverse()
             .map((tweet) => {
               return (
                 <Tweet
