@@ -9,7 +9,7 @@ const RightSection = () => {
         placeholder="Search Twitter"
         className="bg-gray-200 w-full px-4 py-2 text-lg rounded-full"
       />
-      <section className="bg-[#F7F9F9]  py-2 rounded-lg">
+      <section className="bg-[#F7F9F9] px-4 py-4 rounded-3xl">
         <h1 className="font-bold text-lg px-4">What's happening?</h1>
         <div>
           {trending.map((item) => {

@@ -1,7 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import Feed from "../../feed";
-import { ReactComponent as UserIcon } from "../../assets/user.svg";
+import userIcon from "../../assets/pp.jpg";
+import Tweet from "./tweet";
 const MainSection = ({ username }) => {
   const [TweetContent, SetTweetContent] = useState("");
   const [TweetEdit, setTweetEdit] = useState(false);
@@ -35,7 +36,8 @@ const MainSection = ({ username }) => {
       <h1 className="font-bold text-3xl mb-8 px-4">Latest Tweets</h1>
       <section className="flex flex-col  w-full py-4 px-4">
         <div className="flex gap-2">
-          <UserIcon className="w-12 h-12 border-2 border-black rounded-full" />
+          {/* <UserIcon className="w-12 h-12 border-2 border-black rounded-full" /> */}
+          <img className="w-16 h-16 rounded-full" src={userIcon} alt="pp" />
           <input
             type="text"
             value={TweetContent}
@@ -58,39 +60,21 @@ const MainSection = ({ username }) => {
         </div>
       </section>
 
-      <section className="py-6 border-t w-full px-4 ">
+      <section className=" border-t w-full ">
         <ul>
           {JSON.parse(localStorage.getItem("Feed"))
             .reverse()
             .map((tweet) => {
               return (
-                <li className="flex gap-4 mb-5  ">
-                  <UserIcon className="w-12 h-12 border-2 border-black rounded-full" />
-                  <div className="flex flex-col w-full ">
-                    <h2 className="font-bold px-2 py-1">@{tweet.author} </h2>
-                    <p className="px-2 py-1 "> {tweet.content}</p>
-                  </div>
-                  {tweet.author === username ? (
-                    <button
-                      onClick={(e) => {
-                        editTweet(e);
-                      }}
-                      className="text-md bg-[#44ACF3] hover:bg-[#1A8CD8] text-white px-4 py-2 rounded-lg font-bold rounded-3xl h-min"
-                    >
-                      Edit
-                    </button>
-                  ) : null}
-                  {tweet.author === username && TweetEdit ? (
-                    <button
-                      onClick={(e) => {
-                        saveTweet(e);
-                      }}
-                      className="text-md bg-[#44ACF3] hover:bg-[#1A8CD8] text-white px-4 py-2 rounded-lg font-bold rounded-3xl h-min"
-                    >
-                      Save
-                    </button>
-                  ) : null}
-                </li>
+                <Tweet
+                  userIcon={userIcon}
+                  author={tweet.author}
+                  content={tweet.content}
+                  username={username}
+                  editTweet={editTweet}
+                  saveTweet={saveTweet}
+                  TweetEdit={TweetEdit}
+                />
               );
             })}
         </ul>
