@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import Feed from "../../feed";
 import userIcon from "../../assets/pp.jpg";
@@ -17,7 +17,7 @@ const MainSection = ({ username }) => {
     p.setAttribute("contenteditable", false);
   }
   let postIDCount = 0;
-
+  useEffect(() => {}, [postIDCount]);
   function postTweet() {
     postIDCount++;
     const today = new Date();
